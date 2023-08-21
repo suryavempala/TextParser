@@ -20,7 +20,7 @@ function App() {
    <> 
    <Navbar title="TextParser" mode={mode} toggle={toggle}/>
    <div className="container my-3">
-   <TextForm heading="Enter the text to Analyse" mode={mode} toggle={toggle}/>
+   <TextForm heading="Enter the text to Analyse" mode={mode} />
    </div>
    </>  
   );
