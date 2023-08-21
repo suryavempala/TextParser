@@ -3,12 +3,12 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import About from './components/About';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import About from './components/About';
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 
 function App() {
   const [mode,setMode]=useState('light');
@@ -37,17 +37,18 @@ function App() {
   }
   return (
    <> 
-   <Router>
+   {/* <Router> */}
    <Navbar title="TextParser" mode={mode} toggle={toggle}/>
    <Alert alert={alert}/>
    <div className="container my-3">
-   <Routes>
+   {/* <Routes>
           <Route path="/about" element={ <About mode={mode}/>}/>
   
           <Route path="/" element={<TextForm heading="Enter the text to Analyse" mode={mode}  showAlert={showAlert}  />}/>
-    </Routes>
+    </Routes> */}
+    <TextForm heading="Enter the text to Analyse" mode={mode}  showAlert={showAlert}  />
   </div>
-  </Router>
+  {/* </Router> */}
    </>  
   );
 }
