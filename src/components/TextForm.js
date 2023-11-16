@@ -41,18 +41,18 @@ export default function TextForm(props) {
         <div>
             <textarea style={{backgroundColor:props.mode==='dark'?'#545454':'white',color:props.mode==='dark'?'white':'black'}} className="form-control mt-4" value={Text} onChange={handleChange} id="textBox" rows="10"></textarea>
         </div>
-        <button className="btn btn-primary mt-5  mx-2" onClick={handleClickUpper}>To Upper</button>
-        <button className="btn btn-primary mt-5  mx-2" onClick={handleClickLower}>To Lower</button>  
-        <button className="btn btn-primary mt-5  mx-2" onClick={handleClear}>Clear Text</button>   
-        <button className="btn btn-primary mt-5  mx-2" onClick={handleCopy}>Copy Text</button> 
-        <button className="btn btn-primary mt-5  mx-2" onClick={RemoveExtraSpace}>Remove Extra Spaces</button>         
+        <button className="btn btn-primary mt-5  mx-2" disabled={Text.split(/\s+/).filter((element)=>{return element.length!==0}).length===0} onClick={handleClickUpper}>To Upper</button>
+        <button className="btn btn-primary mt-5  mx-2" disabled={Text.split(/\s+/).filter((element)=>{return element.length!==0}).length===0} onClick={handleClickLower}>To Lower</button>  
+        <button className="btn btn-primary mt-5  mx-2" disabled={Text.split(/\s+/).filter((element)=>{return element.length!==0}).length===0} onClick={handleClear}>Clear Text</button>   
+        <button className="btn btn-primary mt-5  mx-2" disabled={Text.split(/\s+/).filter((element)=>{return element.length!==0}).length===0} onClick={handleCopy}>Copy Text</button> 
+        <button className="btn btn-primary mt-5  mx-2" disabled={Text.split(/\s+/).filter((element)=>{return element.length!==0}).length===0} onClick={RemoveExtraSpace}>Remove Extra Spaces</button>         
     </div>
     <div className="container mt-5" style={{backgroundColor:props.mode==='dark'?'#545454':'white',color:props.mode==='dark'?'white':'black'}}>
        <h2>Text Summary : </h2>
         <p className='text-center m-5 blank'>
             Number of Charecters : {Text.length} <br></br>
-            Number of words : {Text.length===0?0:Text[Text.length-1]===' '?Text.split(/[ ]+/).length-1 :Text.split(/[ ]+/).length } <br></br>
-            Time to read : {(Text.length===0?0:Text[Text.length-1]===' '?Text.split(/[ ]+/).length-1 :Text.split(/[ ]+/).length ) *0.01} minutes
+            Number of words : {Text.split(/\s+/).filter((element)=>{return element.length!==0}).length} <br></br>
+            Time to read : {Text.split(/\s+/).filter((element)=>{return element.length!==0}).length *0.01} minutes
         </p>
         <h3>Preview :</h3>
         <p>{Text.length > 0? Text :"Please Enter some text to preview"}</p>
